@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+						<title>Metro APP</title>
+<!-- Include meta tag to ensure proper rendering and touch zooming -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Include jQuery Mobile stylesheets -->
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!-- Include the jQuery library -->
+  <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <!-- Include the jQuery Mobile library -->
+  <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+  
+  <!--Geolocation-->
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script>
+var x = document.getElementById("demo");
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+    latlon = new google.maps.LatLng(lat, lon)
+    mapholder = document.getElementById('mapholder')
+    mapholder.style.height = '500px';
+    mapholder.style.width = '1300px';
+
+    var myOptions = {
+    center:latlon,zoom:14,
+    mapTypeId:google.maps.MapTypeId.ROADMAP,
+    mapTypeControl:false,
+    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
+    }
+    
+    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
+    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            break;
+    }
+}
+</script>
+</head>
+
+<body>
+
+
+<!-- First hierarchy Start Here-->
+<div data-role="page" id="Home">
+<div data-role="header">
+<h1> Metro finder </h1>
+</div>
+<div data-role="main" class="ui-content">
+
+<a href="#pageStations" class="ui-btn ui-corner-all" >Timing\Stations</a>
+<a href="#pageRoute" class="ui-btn ui-corner-all" onclick="getLocation()">Route</a>
+
+<a href="#pageFindMetro" class="ui-btn ui-corner-all">Find Metro</a>
+
+</div>
+
+</div>
+<!-- First hierarchy Start Here-->
+<div data-role="page" id="HomePage">
+<div data-role="header">
+<h1> Metro finder </h1>
+</div>
+<div data-role="main" class="ui-content">
+
+<a href="#pageStations" class="ui-btn ui-corner-all" >Timing\Stations</a>
+<a href="#pageRoute" class="ui-btn ui-corner-all" onclick="getLocation()">Route</a>
+<!--button onclick="getLocation()">Try It</button-->
+<a href="#pageFindMetro" class="ui-btn ui-corner-all">Find Metro</a>
+
+</div>
+
+</div>
+
+<!-- 2nd hierarchy Start Here-->
+
+<div data-role="page" id="pageStations">
+<div data-role="header">
+
+<a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
+<a href="#HomePage" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
+<h1> Stations </h1>
+</div>
+<div data-role="content">
+<h4>Here will be information of Stations which will be shown through collapse</h4>
+</div>
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
+</div>
+
+
+<div data-role="page" id="pageRoute">
+<div data-role="header">
+<a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
+<a href="#HomePage" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
+<h1> Route </h1>
+</div>
+<div data-role="content">
+
+
+
+
+<div id="mapholder"></div>
+</div>
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
+</div>
+
+
+<div data-role="page" id="pageFindMetro">
+<div data-role="header">
+<a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
+<a href="#HomePage" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
+<h1> Find Metro</h1>
+</div>
+<div data-role="content">
+
+<ul data-role="listview">
+<li><a href="#pageStations2"> Stations </a></li>
+<li><a href="#pageCurrentLocation"> Current Location </a></li>
+</ul>
+</div>
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
+</div>
+<!-- 2nd hierarchy End Here-->
+
+<!-- Third hierarchy Start Here-->
+<div data-role="page" id="pageRouttiming">
+<div data-role="header">
+<a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
+<a href="#pageRoute" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
+<h1> Route </h1>
+</div>
+<div data-role="content">
+
+<h3>Route timing will be shown here</h3>
+</div>
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
+</div>
+
+
+
+<!--page 3.2 for Stations-->
+
+
+<div data-role="page" id="pageStations2">
+<div data-role="header">
+<a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
+<a href="#pageFindMetro" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
+<h1> Stations</h1>
+</div>
+<div data-role="content">
+
+<ul data-role="listview">
+<h4>Here will be the List of Stations</h4>
+</ul>
+</div>
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
+</div>
+
+
+
+<!--page 3.1 for Current Location-->
+
+
+<div data-role="page" id="pageCurrentLocation">
+<div data-role="header">
+<a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
+<a href="#pageFindMetro" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
+<h1> Current Location</h1>
+</div>
+<div data-role="content">
+
+<ul data-role="listview">
+<h4>Here we will show the location of Metro near satiation from user current location through GPS plugin</h4>
+</ul>
+</div>
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
+</div>
+
+</body>
+
+
+</html>
+
