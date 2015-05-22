@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Directions service</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	
+<p id="demo"></p>
+
+<script>
+var Current_lat;
+var Current_log;
+var Destination_lat;
+var Destination_log;
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(AssignLatLog);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+
+function AssignLatLog(position) {
+    Current_lat= position.coords.latitude ;
+	Current_log = position.coords.longitude;
+}
+getLocation();
+
+
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var ch = new google.maps.LatLng(33.656611, 73.072445);
+  var mapOptions = {
+    zoom:7,
+    center: ch
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  directionsDisplay.setMap(map);
+}
+
+function calcRoute() {
+var MetroSatations = [
+
+		
+ <!--Islamabad Station Coordinates-->	
+	new google.maps.LatLng(33.656611, 73.072445),
+    new google.maps.LatLng(33.660490, 73.065727),
+	new google.maps.LatLng(33.668848, 73.059548),
+    new google.maps.LatLng(33.675277, 73.054312),
+	new google.maps.LatLng(33.684633, 73.047360),
+	new google.maps.LatLng(33.689704, 73.042982),
+	new google.maps.LatLng(33.695702, 73.038562),
+	new google.maps.LatLng(33.702415, 73.041609),
+	new google.maps.LatLng(33.705771, 73.048304),
+    new google.maps.LatLng(33.711554, 73.059247),
+	new google.maps.LatLng(33.717873, 73.071435),
+	new google.maps.LatLng(33.721371, 73.077915),
+	new google.maps.LatLng(33.724619, 73.084825),
+	new google.maps.LatLng(33.735076, 73.092249),
+	
+	new google.maps.LatLng(33.593900, 73.056072),
+	new google.maps.LatLng(33.6099767,73.0703852),
+	new google.maps.LatLng(33.605518, 73.065901),
+	new google.maps.LatLng(33.612693, 73.065085),
+	new google.maps.LatLng(33.620502, 73.065976),
+    new google.maps.LatLng(33.629709, 73.071758),
+	new google.maps.LatLng(33.636498, 73.075148),
+	new google.maps.LatLng(33.643643, 73.077938),
+	new google.maps.LatLng(33.650753, 73.080599),
+	new google.maps.LatLng(33.661255, 73.082616),
+	new google.maps.LatLng(33.656611, 73.072445),
+	
+
+  ];
+ 
+ var end = document.getElementById('end').value;
+ 
+  var start = new google.maps.LatLng(Current_lat, Current_log);
+  var end = MetroSatations[end];
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="panel">
+    <b>Metro Stations: </b>
+    <select id="end" onchange="calcRoute();">
+      <option value=1>IJP Road</option>
+	  <option value=2>Pothohar Road</option>
+	  <option value=3>hyaban-e-Johar</option>
+	  <option value=4>Faiz Ahmed Faiz Road</option>
+	  <option value=5>Kashmir Highway</option>
+	  <option value=6>Chamman Road</option>
+	  <option value=7>Ibn-e-Sina Road</option>
+	  <option value=8>Katchehri Station</option>
+	  <option value=9>Centaurus</option>
+	  <option value=10>Saudi Pak Tower</option>
+	  <option value=11>7th Avenue</option>
+	  <option value=12>Shaheed-e-Millat Road</option>
+	  <option value=13>Parade Ground</option>
+	  <option value=14>Secretariat</option>
+       
+
+      <option value=15>Saddar</option>
+	  <option value=16>Marrir Chowk</option>
+	  <option value=17>Liaqat Bagh</option>
+	  <option value=18>Committee Chowk</option>
+	  <option value=19>Waris Khan</option>
+	  <option value=20>Hospital</option>
+	  <option value=21>Rehmanabad</option>
+	  <option value=22>6th Road</option>
+	  <option value=23>Shamsabad</option>
+	  <option value=24>Faizabad</option>
+     
+
+      
+    </select>
+    </div>
+    <div id="map-canvas"></div>
+  </body>
+</html>

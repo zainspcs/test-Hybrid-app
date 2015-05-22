@@ -4,63 +4,24 @@
 
 <head>
 						<title>Metro APP</title>
+
+						
 <!-- Include meta tag to ensure proper rendering and touch zooming -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Include jQuery Mobile stylesheets -->
   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  
+      <link rel="stylesheet" href="themes/RedWhite.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	
   <!-- Include the jQuery library -->
   <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
   <!-- Include the jQuery Mobile library -->
   <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
   
-  <!--Geolocation-->
-<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-<script>
-var x = document.getElementById("demo");
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
-    latlon = new google.maps.LatLng(lat, lon)
-    mapholder = document.getElementById('mapholder')
-    mapholder.style.height = '500px';
-    mapholder.style.width = '1300px';
-
-    var myOptions = {
-    center:latlon,zoom:14,
-    mapTypeId:google.maps.MapTypeId.ROADMAP,
-    mapTypeControl:false,
-    navigationControlOptions:{style:google.maps.NavigationControlStyle.SMALL}
-    }
-    
-    var map = new google.maps.Map(document.getElementById("mapholder"), myOptions);
-    var marker = new google.maps.Marker({position:latlon,map:map,title:"You are here!"});
-}
-
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
-</script>
+  
+ 		
+ 
 </head>
 
 <body>
@@ -74,12 +35,14 @@ function showError(error) {
 <div data-role="main" class="ui-content">
 
 <a href="#pageStations" class="ui-btn ui-corner-all" >Timing\Stations</a>
-<a href="#pageRoute" class="ui-btn ui-corner-all" onclick="getLocation()">Route</a>
+<a href="#pageRoute" class="ui-btn ui-corner-all" >Route</a>
 
 <a href="#pageFindMetro" class="ui-btn ui-corner-all">Find Metro</a>
 
 </div>
-
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
 </div>
 <!-- First hierarchy Start Here-->
 <div data-role="page" id="HomePage">
@@ -89,12 +52,14 @@ function showError(error) {
 <div data-role="main" class="ui-content">
 
 <a href="#pageStations" class="ui-btn ui-corner-all" >Timing\Stations</a>
-<a href="#pageRoute" class="ui-btn ui-corner-all" onclick="getLocation()">Route</a>
+<a href="#pageRoute" class="ui-btn ui-corner-all" >Route</a>
 <!--button onclick="getLocation()">Try It</button-->
 <a href="#pageFindMetro" class="ui-btn ui-corner-all">Find Metro</a>
 
 </div>
-
+<div data-role="footer"  data-position="fixed" data-position="fixed"> 
+<h4>All right reserved</h4>
+</div>
 </div>
 
 <!-- 2nd hierarchy Start Here-->
@@ -107,27 +72,445 @@ function showError(error) {
 <h1> Stations </h1>
 </div>
 <div data-role="content">
-<h4>Here will be information of Stations which will be shown through collapse</h4>
+
+<h5> Islamabad Stations (14 Stations) </h5>
+<div data-role="collapsible">
+  <h6><Strong>1. IJP Road</Strong></h6>
+	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 07:00 am          LHR 0122</br>
+<br>- 07:20 am          LHS 0048</br>
+<br>- 07:40 am 			LHQ 0181</br>
+<br>- 08:00 am 			LHT 0157</br>
+<br>- 08:20 am 			LHM 0232</br>
+</h6>
 </div>
+<div data-role="collapsible">
+  <h6>2. Pothohar Road</h6>
+	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 07:20 am 			LHR 0122</br>
+<br>- 07:40 am 			LHS 0048</br>
+<br>- 08:00 am 			LHQ 0181</br>
+<br>- 08:20 am 			LHT 0157</br>
+<br>- 08:40 am 			LHM 0232</br>
+
+
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>3. Khyaban-e-Johar </Strong></h6>
+	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 07:40 am 			LHR 0122</br>
+<br>- 08:00 am 			LHS 0048</br>
+<br>- 08:20 am 			LHQ 0181</br>
+<br>- 08:40 am 			LHT 0157</br>
+<br>- 09:00 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>4. Faiz Ahmed Faiz Road</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:00 am 			LHR 0232</br>
+<br>- 08:20 am 			LHS 0048</br>
+<br>- 08:40 am 			LHQ 0181</br>
+<br>- 09:00 am 			LHT 0157</br>
+<br>- 09:20 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>5. Kashmir Highway</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>6. Chamman Road</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>7. Ibn-e-Sina Road</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>8. Katchehri Station</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>9. Centaurus</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>10. Saudi Pak Tower</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div><div data-role="collapsible">
+  <h6><Strong>11. 7th Avenue</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div><div data-role="collapsible">
+  <h6><Strong>12. Shaheed-e-Millat Road</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>13. Parade Ground</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>14. Secretariat</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<h5> Rawalpindi Stations (10 Stations) </h5>
+
+<div data-role="collapsible">
+  <h6><Strong>1. Saddar</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>2. Marrir Chowk</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>3. Liaqat Bagh</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>4. Committee Chowk</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>
+5. Waris Khan</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+<div data-role="collapsible">
+  <h6><Strong>6. Hospital</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div><div data-role="collapsible">
+  <h6><Strong>7. Rehmanabad</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>
+8. 6th Road</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>9. Shamsabad</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+<div data-role="collapsible">
+  <h6><Strong>10. Faizabad</Strong></h6>
+
+  	<h5>Bus Numbers And Departure Times</h5>
+<h6>
+<br>- 08:20 am 			LHR 0232</br>
+<br>- 08:40 am 			LHS 0048</br>
+<br>- 09:00 am 			LHQ 0181</br>
+<br>- 09:20 am 			LHT 0157</br>
+<br>- 09:40 am 			LHM 0232</br>
+</h6>
+</div>
+
+
+
 <div data-role="footer"  data-position="fixed" data-position="fixed"> 
 <h4>All right reserved</h4>
 </div>
 </div>
-
+</div>
 
 <div data-role="page" id="pageRoute">
+
 <div data-role="header">
 <a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
 <a href="#HomePage" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
-<h1> Route </h1>
+		<h1> Route</h1>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    
+    
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+	
+    
+    <script>
+// This example creates a 2-pixel-wide red polyline showing
+// the path of William Kingsford Smith's first trans-Pacific flight between
+// Oakland, CA, and Brisbane, Australia.
+
+function initialize() {
+  var mapOptions = {
+    zoom: 13,
+	center: new google.maps.LatLng(33.656611, 73.072445),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+
+  var IslamabadMetroPath = [
+
+		
+ <!--Islamabad Station Coordinates-->	
+	new google.maps.LatLng(33.656611, 73.072445),
+    new google.maps.LatLng(33.660490, 73.065727),
+	new google.maps.LatLng(33.668848, 73.059548),
+    new google.maps.LatLng(33.675277, 73.054312),
+	new google.maps.LatLng(33.684633, 73.047360),
+	new google.maps.LatLng(33.689704, 73.042982),
+	new google.maps.LatLng(33.695702, 73.038562),
+	new google.maps.LatLng(33.702415, 73.041609),
+	new google.maps.LatLng(33.705771, 73.048304),
+    new google.maps.LatLng(33.711554, 73.059247),
+	new google.maps.LatLng(33.717873, 73.071435),
+	new google.maps.LatLng(33.721371, 73.077915),
+	new google.maps.LatLng(33.724619, 73.084825),
+	new google.maps.LatLng(33.735076, 73.092249),
+	
+
+   
+
+  ];
+  
+  var RawalpindiMetroPath = [
+	
+	<!--Rawalpindi Stations Coordinates-->	
+	
+	new google.maps.LatLng(33.593900, 73.056072),
+	new google.maps.LatLng(33.6099767,73.0703852),
+	new google.maps.LatLng(33.605518, 73.065901),
+	new google.maps.LatLng(33.612693, 73.065085),
+	new google.maps.LatLng(33.620502, 73.065976),
+    new google.maps.LatLng(33.629709, 73.071758),
+	new google.maps.LatLng(33.636498, 73.075148),
+	new google.maps.LatLng(33.643643, 73.077938),
+	new google.maps.LatLng(33.650753, 73.080599),
+	new google.maps.LatLng(33.661255, 73.082616),
+	new google.maps.LatLng(33.656611, 73.072445),
+	
+
+   
+
+  ];
+  
+  
+  
+  <!-- Marker Code>
+  var   marker_isb = new Array(IslamabadMetroPath.length), i;
+
+  for (i = 0; i < IslamabadMetroPath.length; i++) {
+     marker_isb[i]= new google.maps.Marker({
+        position: IslamabadMetroPath[i],
+        map: map
+      });
+	  }
+	  
+	  var   marker_Pindi = new Array(RawalpindiMetroPath.length), j;
+
+  for (j = 0; j < RawalpindiMetroPath.length; j++) {
+     marker_Pindi[j]= new google.maps.Marker({
+        position: RawalpindiMetroPath[j],
+        map: map
+      });
+	  }
+	  
+ 
+  
+  var islamabadPath = new google.maps.Polyline({
+    path: IslamabadMetroPath,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+ var RawalpindiPath = new google.maps.Polyline({
+    path: RawalpindiMetroPath,
+    geodesic: true,
+    strokeColor: '#0000FF',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+  islamabadPath.setMap(map);
+  RawalpindiPath.setMap(map);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+      
 </div>
+
 <div data-role="content">
+  <div id="map-canvas" style="width:700px; height:500px">
+  </div>
+  </div>
+  
 
-
-
-
-<div id="mapholder"></div>
-</div>
 <div data-role="footer"  data-position="fixed" data-position="fixed"> 
 <h4>All right reserved</h4>
 </div>
@@ -142,10 +525,11 @@ function showError(error) {
 </div>
 <div data-role="content">
 
-<ul data-role="listview">
-<li><a href="#pageStations2"> Stations </a></li>
-<li><a href="#pageCurrentLocation"> Current Location </a></li>
-</ul>
+<div data-role="main" class="ui-content">
+<a href="#pageStations" class="ui-btn ui-corner-all" >Stations INFO</a>
+<a href="#pageCurrentLocation" class="ui-btn ui-corner-all" >Find Nearest Station</a>
+</div>
+
 </div>
 <div data-role="footer"  data-position="fixed" data-position="fixed"> 
 <h4>All right reserved</h4>
@@ -159,6 +543,7 @@ function showError(error) {
 <a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
 <a href="#pageRoute" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
 <h1> Route </h1>
+
 </div>
 <div data-role="content">
 
@@ -200,13 +585,169 @@ function showError(error) {
 <div data-role="header">
 <a href="#HomePage" class="ui-btn ui-icon-home ui-btn-icon-left ui-corner-all ui-btn-icon-notext">Home</a>
 <a href="#pageFindMetro" class="ui-btn ui-icon-back ui-btn-icon-right ui-corner-all ui-btn-icon-notext">Back</a>
-<h1> Current Location</h1>
-</div>
-<div data-role="content">
+<h1> Find Nearest Station</h1> 
 
-<ul data-role="listview">
-<h4>Here we will show the location of Metro near satiation from user current location through GPS plugin</h4>
-</ul>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    
+    <style>
+      html, body, #map-canvas2 {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+      #panel {
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        margin-left: -180px;
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+	
+<p id="demo"></p>
+
+<script>
+var Current_lat;
+var Current_log;
+var Destination_lat;
+var Destination_log;
+var x = document.getElementById("demo");
+
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(AssignLatLog);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+
+function AssignLatLog(position) {
+    Current_lat= position.coords.latitude ;
+	Current_log = position.coords.longitude;
+}
+getLocation();
+
+
+var directionsDisplay;
+var directionsService = new google.maps.DirectionsService();
+var map;
+
+function initialize() {
+  directionsDisplay = new google.maps.DirectionsRenderer();
+  var ch = new google.maps.LatLng(33.656611, 73.072445);
+  var mapOptions = {
+    zoom:7,
+    center: ch
+  };
+  map = new google.maps.Map(document.getElementById('map-canvas2'), mapOptions);
+  directionsDisplay.setMap(map);
+}
+
+function calcRoute() {
+var MetroSatations = [
+
+		
+ <!--Islamabad Station Coordinates-->	
+	new google.maps.LatLng(33.656611, 73.072445),
+    new google.maps.LatLng(33.660490, 73.065727),
+	new google.maps.LatLng(33.668848, 73.059548),
+    new google.maps.LatLng(33.675277, 73.054312),
+	new google.maps.LatLng(33.684633, 73.047360),
+	new google.maps.LatLng(33.689704, 73.042982),
+	new google.maps.LatLng(33.695702, 73.038562),
+	new google.maps.LatLng(33.702415, 73.041609),
+	new google.maps.LatLng(33.705771, 73.048304),
+    new google.maps.LatLng(33.711554, 73.059247),
+	new google.maps.LatLng(33.717873, 73.071435),
+	new google.maps.LatLng(33.721371, 73.077915),
+	new google.maps.LatLng(33.724619, 73.084825),
+	new google.maps.LatLng(33.735076, 73.092249),
+	
+	new google.maps.LatLng(33.593900, 73.056072),
+	new google.maps.LatLng(33.6099767,73.0703852),
+	new google.maps.LatLng(33.605518, 73.065901),
+	new google.maps.LatLng(33.612693, 73.065085),
+	new google.maps.LatLng(33.620502, 73.065976),
+    new google.maps.LatLng(33.629709, 73.071758),
+	new google.maps.LatLng(33.636498, 73.075148),
+	new google.maps.LatLng(33.643643, 73.077938),
+	new google.maps.LatLng(33.650753, 73.080599),
+	new google.maps.LatLng(33.661255, 73.082616),
+	new google.maps.LatLng(33.656611, 73.072445),
+	
+
+  ];
+ 
+ var end = document.getElementById('end').value;
+ 
+  var start = new google.maps.LatLng(Current_lat, Current_log);
+  var end = MetroSatations[end];
+  var request = {
+      origin:start,
+      destination:end,
+      travelMode: google.maps.TravelMode.DRIVING
+  };
+  directionsService.route(request, function(response, status) {
+    if (status == google.maps.DirectionsStatus.OK) {
+      directionsDisplay.setDirections(response);
+    }
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+   
+    </div>
+	
+	
+	<div data-role="content">
+    
+	<div id="panel"  line-height="10px">;
+   
+    <b>Metro Stations: </b>
+    <select id="end" onchange="calcRoute();">
+      <option value=1>IJP Road</option>
+	  <option value=2>Pothohar Road</option>
+	  <option value=3>hyaban-e-Johar</option>
+	  <option value=4>Faiz Ahmed Faiz Road</option>
+	  <option value=5>Kashmir Highway</option>
+	  <option value=6>Chamman Road</option>
+	  <option value=7>Ibn-e-Sina Road</option>
+	  <option value=8>Katchehri Station</option>
+	  <option value=9>Centaurus</option>
+	  <option value=10>Saudi Pak Tower</option>
+	  <option value=11>7th Avenue</option>
+	  <option value=12>Shaheed-e-Millat Road</option>
+	  <option value=13>Parade Ground</option>
+	  <option value=14>Secretariat</option>
+       
+
+      <option value=15>Saddar</option>
+	  <option value=16>Marrir Chowk</option>
+	  <option value=17>Liaqat Bagh</option>
+	  <option value=18>Committee Chowk</option>
+	  <option value=19>Waris Khan</option>
+	  <option value=20>Hospital</option>
+	  <option value=21>Rehmanabad</option>
+	  <option value=22>6th Road</option>
+	  <option value=23>Shamsabad</option>
+	  <option value=24>Faizabad</option>
+     
+
+      
+    </select>
+    </div>
+    <div id="map-canvas2" style="width:700px; height:500px">
+  </div>
+  </div>
+
 </div>
 <div data-role="footer"  data-position="fixed" data-position="fixed"> 
 <h4>All right reserved</h4>
